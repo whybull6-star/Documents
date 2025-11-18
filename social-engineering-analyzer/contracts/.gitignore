@@ -1,0 +1,24 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Hardhat files
+cache/
+artifacts/
+typechain-types/
+
+# OpenZeppelin
+openzeppelin/
+
+# Node
+node_modules/
+
+# Coverage
+coverage/
+*.lcov
+
+# Misc
+.DS_Store
+*.log
+

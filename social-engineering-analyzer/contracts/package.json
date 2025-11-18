@@ -1,0 +1,23 @@
+{
+  "name": "social-engineering-analyzer-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for Social Engineering Analyzer on Gnosis Chain",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy-subscription.js --network gnosis-testnet",
+    "deploy:mainnet": "hardhat run scripts/deploy-subscription.js --network gnosis-mainnet",
+    "deploy-credits:testnet": "hardhat run scripts/deploy.js --network gnosis-testnet",
+    "deploy-credits:mainnet": "hardhat run scripts/deploy.js --network gnosis-mainnet"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.1",
+    "dotenv": "^16.3.1"
+  }
+}
+
+

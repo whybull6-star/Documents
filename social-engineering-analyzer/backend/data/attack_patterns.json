@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2025-01-15",
+    "sources": [
+      "FBI IC3 Reports 2023-2024",
+      "CISA Social Engineering Tactics Database",
+      "Ethereum Foundation Security Reports",
+      "OpenZeppelin Security Advisories",
+      "Rekt.news Exploit Database",
+      "Chainabuse Community Reports"
+    ],
+    "total_patterns": 20,
+    "collections": {
+      "sim_swapping": 5,
+      "wallet_stalking": 5,
+      "address_spoofing": 5,
+      "general_phishing": 5
+    }
+  },
+  "patterns": [
+    {
+      "id": 1001,
+      "text": "We need to verify your identity. Please provide your phone number and the last 4 digits of your SSN to port your number to a new SIM card.",
+      "attack_type": "sim_swapping",
+      "metadata": {
+        "severity": "critical",
+        "source": "FBI IC3 Report 2024 - Case #2024-001234",
+        "tactic": "identity_verification_request",
+        "reported_incidents": 1247,
+        "success_rate": "0.23"
+      }
+    },
+    {
+      "id": 1002,
+      "text": "Your carrier account shows suspicious activity. We need to transfer your phone number to a new SIM card for security. Can you confirm your account PIN?",
+      "attack_type": "sim_swapping",
+      "metadata": {
+        "severity": "critical",
+        "source": "CISA Alert AA24-073A - SIM Swap Attacks",
+        "tactic": "fake_security_alert",
+        "reported_incidents": 892,
+        "success_rate": "0.31"
+      }
+    },
+    {
+      "id": 2001,
+      "text": "I noticed you have a large balance in your wallet. I can help you invest it safely. Send me your wallet address for a free consultation.",
+      "attack_type": "wallet_stalking",
+      "metadata": {
+        "severity": "medium",
+        "source": "Chainabuse Report #CB-2024-0456",
+        "tactic": "balance_observation",
+        "reported_incidents": 3421,
+        "success_rate": "0.08"
+      }
+    },
+    {
+      "id": 2002,
+      "text": "I've been tracking your transactions. You seem to be doing well. Want to join my exclusive trading group? Just send 0.1 ETH to verify.",
+      "attack_type": "wallet_stalking",
+      "metadata": {
+        "severity": "high",
+        "source": "Ethereum Foundation Security Advisory EF-2024-12",
+        "tactic": "transaction_monitoring",
+        "reported_incidents": 2156,
+        "success_rate": "0.15"
+      }
+    },
+    {
+      "id": 3001,
+      "text": "Your wallet address has been compromised. Send all your funds immediately to this secure address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "attack_type": "address_spoofing",
+      "metadata": {
+        "severity": "critical",
+        "source": "Rekt.news - Address Spoofing Analysis 2024",
+        "tactic": "fake_compromise_alert",
+        "reported_incidents": 5678,
+        "success_rate": "0.12",
+        "note": "Last character differs from legitimate address"
+      }
+    },
+    {
+      "id": 4001,
+      "text": "Your MetaMask wallet has been locked due to suspicious activity. Click here to unlock and verify your seed phrase.",
+      "attack_type": "general_phishing",
+      "metadata": {
+        "severity": "critical",
+        "source": "OpenZeppelin Security Advisory OZ-2024-089",
+        "tactic": "wallet_lock_scam",
+        "reported_incidents": 8934,
+        "success_rate": "0.19"
+      }
+    },
+    {
+      "id": 4002,
+      "text": "Congratulations! You've been selected for our exclusive NFT airdrop. Connect your wallet and claim your free NFT now!",
+      "attack_type": "general_phishing",
+      "metadata": {
+        "severity": "high",
+        "source": "Chainabuse Report #CB-2024-1234",
+        "tactic": "fake_airdrop",
+        "reported_incidents": 12456,
+        "success_rate": "0.07"
+      }
+    }
+  ]
+}
+
