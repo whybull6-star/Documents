@@ -280,9 +280,15 @@ async def analyze_wallet(request: WalletAnalysisRequest):
             "credits_used": 1
         }
     except ValueError as e:
+        print(f"ERROR: ValueError in analyze-wallet: {e}")
         raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException:
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"ERROR: Exception in analyze-wallet: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 @app.post("/compare-wallets")
 async def compare_wallets(request: WalletCompareRequest):

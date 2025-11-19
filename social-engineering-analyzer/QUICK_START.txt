@@ -1,0 +1,35 @@
+========================================
+  QUICK START - COPY THESE COMMANDS
+========================================
+
+STEP 1: Open Command Prompt
+STEP 2: Navigate to project
+STEP 3: Start backend
+
+----------------------------------------
+
+COMMAND 1 (Navigate):
+cd social-engineering-analyzer\backend
+
+COMMAND 2 (Install - if needed):
+pip install -r requirements.txt
+
+COMMAND 3 (Start Backend):
+python -m uvicorn app_enhanced:app --reload --port 8000
+
+----------------------------------------
+
+WAIT FOR:
+"INFO:     Uvicorn running on http://0.0.0.0:8000"
+
+KEEP WINDOW OPEN!
+
+----------------------------------------
+
+TEST IT:
+Open browser: http://localhost:8000/health
+
+Should see JSON response!
+
+========================================
+

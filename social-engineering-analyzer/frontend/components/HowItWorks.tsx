@@ -44,13 +44,11 @@ export default function HowItWorks() {
   const stepVariants = {
     hidden: { 
       opacity: 0, 
-      x: -30,
-      scale: 0.95
+      y: 20,
     },
     visible: {
       opacity: 1,
-      x: 0,
-      scale: 1,
+      y: 0,
       transition: {
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
@@ -62,46 +60,19 @@ export default function HowItWorks() {
     <section 
       ref={containerRef}
       id="how-it-works" 
-      className="relative py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
+      className="relative py-32 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] overflow-hidden"
     >
-      {/* Subtle organic blobs */}
-      <motion.div
-        className="organic-blob w-[400px] h-[400px] bg-gradient-to-br from-primary-200/20 via-blue-200/15 to-purple-200/15"
-        style={{ top: '10%', right: '-5%' }}
-        animate={{
-          x: [0, 20, -15, 0],
-          y: [0, -25, 15, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="organic-blob w-[350px] h-[350px] bg-gradient-to-br from-emerald-200/15 via-teal-200/10 to-cyan-200/15"
-        style={{ bottom: '10%', left: '-5%' }}
-        animate={{
-          x: [0, -20, 15, 0],
-          y: [0, 25, -15, 0],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            How It <span className="gradient-text">Works</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+            How It <span className="text-primary-400">Works</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Simple, fast, and secure threat detection in four easy steps
           </p>
         </motion.div>
@@ -113,53 +84,42 @@ export default function HowItWorks() {
           className="relative"
         >
           {/* Vertical timeline line */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-1 bg-gray-200" />
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-700" />
           
-          <div className="space-y-12 md:space-y-16">
+          <div className="space-y-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
                 variants={stepVariants}
                 whileHover={{ 
-                  scale: 1.02,
                   x: 8,
                   transition: { duration: 0.2, ease: "easeOut" }
                 }}
-                className="relative flex items-start gap-6 md:gap-8 group"
+                className="relative flex items-start gap-6 group"
               >
-                {/* Timeline dot */}
+                {/* Step number - normal font, promptingcompany style */}
                 <div className="relative flex-shrink-0">
-                  <div className="hidden md:block absolute left-8 top-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-lg z-10" />
-                  
-                  {/* Step number badge */}
-                  <motion.div
-                    whileHover={{ 
-                      scale: 1.1,
-                      transition: { duration: 0.2 }
-                    }}
-                    className="w-16 h-16 md:w-20 md:h-20 bg-primary-600 text-white rounded-xl flex items-center justify-center text-2xl md:text-3xl font-bold shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-                  >
+                  <div className="absolute left-0 top-0 w-4 h-4 bg-primary-500 rounded-full -translate-x-1/2 border-2 border-[#0a0a0a] z-10" />
+                  <div className="w-14 h-14 bg-primary-500 text-white rounded-lg flex items-center justify-center text-xl font-semibold shadow-lg">
                     {step.number}
-                  </motion.div>
+                  </div>
                 </div>
                 
-                {/* Content card */}
+                {/* Content card - dark background like promptingcompany */}
                 <motion.div
-                  whileHover={{ 
-                    scale: 1.01,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="flex-1 bg-gray-900 text-white rounded-xl p-6 md:p-8 shadow-lg group-hover:shadow-xl transition-all duration-300"
+                  className="flex-1 bg-gray-900 text-white rounded-lg p-6 border border-gray-800 group-hover:border-primary-500/30 transition-all duration-300"
                 >
-                  <div className="mb-2">
-                    <span className="text-xs md:text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                  <div className="mb-1">
+                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
                       STEP {step.number}
                     </span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary-400 transition-colors duration-300">
+                  <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${
+                    index === 2 ? 'text-primary-400' : 'text-white'
+                  }`}>
                     {step.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     {step.description}
                   </p>
                 </motion.div>

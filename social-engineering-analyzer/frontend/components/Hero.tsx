@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useEffect } from 'react'
 import { useWallet } from '@/hooks/useWallet'
+import AnimatedBackground from './AnimatedBackground'
+import FloatingShapes from './FloatingShapes'
 
 export default function Hero() {
   const { address, balance, isConnected, formatAddress } = useWallet()
@@ -30,6 +32,12 @@ export default function Hero() {
       
       {/* Network overlay */}
       <div className="network-overlay" />
+      
+      {/* Animated particle background */}
+      <AnimatedBackground />
+      
+      {/* Floating geometric shapes */}
+      <FloatingShapes />
       
       {/* Organic blob shapes - inspired by SpoonOS */}
       <motion.div
@@ -72,19 +80,21 @@ export default function Hero() {
         }}
       />
       
-      {/* Network nodes */}
-      {[...Array(12)].map((_, i) => (
+      {/* Network nodes with enhanced animation */}
+      {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          className="network-node"
+          className="network-node glow-orb"
           style={{
-            left: `${10 + (i * 7.5)}%`,
+            left: `${10 + (i * 6)}%`,
             top: `${15 + (i % 3) * 25}%`,
             animationDelay: `${i * 0.3}s`,
           }}
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.7, 0.3],
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.8, 0.3],
+            x: [0, Math.sin(i) * 10, 0],
+            y: [0, Math.cos(i) * 10, 0],
           }}
           transition={{
             duration: 2 + (i % 3),
@@ -94,6 +104,9 @@ export default function Hero() {
           }}
         />
       ))}
+      
+      {/* Animated grid overlay */}
+      <div className="absolute inset-0 animated-grid opacity-30" />
 
       <motion.div 
         style={{ y, opacity }}
@@ -101,18 +114,18 @@ export default function Hero() {
       >
         <div className="text-center">
           {/* Main heading with stylish, compact design */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-6"
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-3 tracking-tight">
-              <span className="text-white">Detect Social Engineering</span>
-              <br />
-              <span className="gradient-text">Before It's Too Late</span>
-            </h1>
-          </motion.div>
+                 <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                 className="mb-6"
+               >
+                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-3 tracking-tight text-white">
+                   Detect Social Engineering
+                   <br />
+                   <span className="text-primary-400">Before It's Too Late</span>
+                 </h1>
+               </motion.div>
 
           {/* Welcome message when wallet is connected */}
           {isConnected && address ? (

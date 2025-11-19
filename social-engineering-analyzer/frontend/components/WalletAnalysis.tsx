@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useWallet } from '@/hooks/useWallet'
 import RiskScoreChart from './RiskScoreChart'
+import FloatingShapes from './FloatingShapes'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
@@ -89,8 +90,12 @@ export default function WalletAnalysis() {
   }
 
   return (
-    <section id="wallet-analysis" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="wallet-analysis" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      {/* Subtle animated background */}
+      <div className="absolute inset-0 opacity-15">
+        <FloatingShapes />
+      </div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

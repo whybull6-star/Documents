@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import FloatingShapes from './FloatingShapes'
 
 export default function Features() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -66,12 +67,8 @@ export default function Features() {
 
   return (
     <section id="features" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      {/* Subtle gradient mesh */}
-      <div className="absolute inset-0 gradient-mesh opacity-30" />
-      {/* Network overlay - subtle */}
-      <div className="absolute inset-0 network-overlay opacity-10" />
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]" />
+      {/* Gnosis-inspired simple background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white" />
       
       <div ref={containerRef} className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -80,8 +77,8 @@ export default function Features() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            Powerful <span className="gradient-text">Features</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900">
+            Powerful <span className="text-primary-600">Features</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Everything you need to protect yourself and your organization from social engineering attacks

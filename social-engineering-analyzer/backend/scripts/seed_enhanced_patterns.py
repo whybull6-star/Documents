@@ -231,26 +231,136 @@ GENERAL_PHISHING_PATTERNS = [
 TRANSACTION_ANALYSIS_PATTERNS = [
     {
         "id": 5001,
-        "text": "wallet with zero balance and no transaction history suspicious empty wallet pattern",
+        "text": "wallet with zero balance but transaction history emptied wallet pattern",
         "attack_type": "transaction_analysis",
         "metadata": {
-            "severity": "medium",
+            "severity": "high",
             "source": "on_chain_analysis",
-            "tactic": "empty_wallet_scam"
+            "tactic": "drained_wallet"
         }
     },
     {
         "id": 5002,
-        "text": "wallet with high zero count in address many zeros suspicious address pattern",
+        "text": "wallet with no transaction history completely inactive address",
         "attack_type": "transaction_analysis",
         "metadata": {
-            "severity": "medium",
+            "severity": "low",
             "source": "on_chain_analysis",
-            "tactic": "address_pattern_analysis"
+            "tactic": "new_wallet"
         }
     },
     {
         "id": 5003,
+        "text": "wallet only receiving transactions no outgoing activity accumulation pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "accumulation_wallet"
+        }
+    },
+    {
+        "id": 5004,
+        "text": "wallet only sending transactions no incoming activity distribution pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "distribution_wallet"
+        }
+    },
+    {
+        "id": 5005,
+        "text": "wallet with very few transactions low activity pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "low",
+            "source": "on_chain_analysis",
+            "tactic": "low_activity"
+        }
+    },
+    {
+        "id": 5006,
+        "text": "wallet with high transaction frequency active trading pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "low",
+            "source": "on_chain_analysis",
+            "tactic": "high_activity"
+        }
+    },
+    {
+        "id": 5007,
+        "text": "wallet with large transaction amounts high value transfers",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "high_value_transfers"
+        }
+    },
+    {
+        "id": 5008,
+        "text": "wallet with very small transaction amounts micro transactions pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "dusting_attack"
+        }
+    },
+    {
+        "id": 5009,
+        "text": "wallet interacting with single address limited network pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "isolated_wallet"
+        }
+    },
+    {
+        "id": 5010,
+        "text": "wallet interacting with many addresses diverse network pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "low",
+            "source": "on_chain_analysis",
+            "tactic": "network_wallet"
+        }
+    },
+    {
+        "id": 5011,
+        "text": "wallet with rapid sequential transactions automated trading pattern",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "medium",
+            "source": "on_chain_analysis",
+            "tactic": "bot_activity"
+        }
+    },
+    {
+        "id": 5012,
+        "text": "wallet with slow transaction pattern infrequent activity",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "low",
+            "source": "on_chain_analysis",
+            "tactic": "long_term_holder"
+        }
+    },
+    {
+        "id": 5013,
+        "text": "wallet relationships transaction flow suspicious connections",
+        "attack_type": "transaction_analysis",
+        "metadata": {
+            "severity": "high",
+            "source": "on_chain_analysis",
+            "tactic": "suspicious_relationships"
+        }
+    },
+    {
+        "id": 5014,
         "text": "wallet stalking pattern monitoring other addresses tracking behavior",
         "attack_type": "transaction_analysis",
         "metadata": {
@@ -260,53 +370,23 @@ TRANSACTION_ANALYSIS_PATTERNS = [
         }
     },
     {
-        "id": 5004,
-        "text": "suspicious wallet behavior pattern unusual transaction flow",
-        "attack_type": "transaction_analysis",
-        "metadata": {
-            "severity": "high",
-            "source": "on_chain_analysis",
-            "tactic": "anomaly_detection"
-        }
-    },
-    {
-        "id": 5005,
-        "text": "wallet with very low balance suspicious indicators high risk",
-        "attack_type": "transaction_analysis",
-        "metadata": {
-            "severity": "medium",
-            "source": "on_chain_analysis",
-            "tactic": "low_balance_scam"
-        }
-    },
-    {
-        "id": 5006,
-        "text": "high value wallet large balance potential target for attacks",
+        "id": 5015,
+        "text": "high value wallet large balance significant funds",
         "attack_type": "transaction_analysis",
         "metadata": {
             "severity": "low",
             "source": "on_chain_analysis",
-            "tactic": "high_value_target"
+            "tactic": "whale_wallet"
         }
     },
     {
-        "id": 5007,
-        "text": "wallet relationships transaction flow suspicious connections",
+        "id": 5016,
+        "text": "wallet with very low balance minimal funds",
         "attack_type": "transaction_analysis",
         "metadata": {
-            "severity": "high",
+            "severity": "low",
             "source": "on_chain_analysis",
-            "tactic": "relationship_mapping"
-        }
-    },
-    {
-        "id": 5008,
-        "text": "anomaly detection wallet unusual activity pattern deviation",
-        "attack_type": "transaction_analysis",
-        "metadata": {
-            "severity": "high",
-            "source": "on_chain_analysis",
-            "tactic": "behavioral_anomaly"
+            "tactic": "low_balance"
         }
     }
 ]
