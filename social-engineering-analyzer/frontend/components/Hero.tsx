@@ -123,7 +123,7 @@ export default function Hero() {
                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-3 tracking-tight text-white">
                    Detect Social Engineering
                    <br />
-                   <span className="text-primary-400">Before It's Too Late</span>
+                   <span className="text-primary-400">Before It&apos;s Too Late</span>
                  </h1>
                </motion.div>
 

@@ -62,7 +62,7 @@ export default function CTA() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-lg md:text-xl text-white/90 leading-relaxed"
               >
-                We're building the infrastructure for secure Web3 interactions. A resilient and credibly neutral platform open to anyone without privilege or prejudice. Be a part of protecting the decentralized web.
+                We&apos;re building the infrastructure for secure Web3 interactions. A resilient and credibly neutral platform open to anyone without privilege or prejudice. Be a part of protecting the decentralized web.
               </motion.p>
               
               <motion.div
